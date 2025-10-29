@@ -1,6 +1,7 @@
 import json
  
 class Login():
+    """Essa classe tem como objetivo gerenciar o acesso de um usuário."""
     def __init__(self):
         self.nome = input("Informe seu nome: ").capitalize()
         self.senha = input("Informe sua senha: ")
