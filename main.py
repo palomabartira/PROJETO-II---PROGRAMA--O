@@ -20,7 +20,7 @@ def menu(usuario):
             5️⃣  Sair
               ''')
         
-        opcao = input("⏮ Selecione uma opção no menu para continuar: ⏭ ")
+        opcao = input("⏮ Selecione uma opção no menu para continuar: ⏭  ")
 
         if opcao == "1":
             print("-" * 70)
@@ -40,15 +40,15 @@ def menu(usuario):
         elif opcao == "4":
             print("-" * 70)
             print("⏮ Removendo produtos do carrinho ⏭\n")
-            Remover().excluirSapatos()
+            Remover(usuario)
 
         elif opcao == "5":
             print("-" * 70)
-            print("⏮ Saindo... Esperamos vê-lo em breve! ⏭\n")
+            print("⏮ 👋 Saindo... Esperamos vê-lo em breve! ®️ 🅿️  ⏭\n")
             break
           
         else:
-            print("❌ Opção Inválida")
+            print("\n\033[31m❌ Opção Inválida\033[0m")
 
 
 def inicio():
@@ -63,7 +63,7 @@ def inicio():
         3️⃣  Sair
         ''')
 
-        escolha = input("Selecione uma opção: ")
+        escolha = input("📍 Selecione uma opção: ")
 
         if escolha == "1":
             from login import Login
@@ -74,11 +74,11 @@ def inicio():
             Cadastrar()
 
         elif escolha == "3":
-            print("👋 Encerrando o sistema. Até breve!")
+            print("\n👋 Encerrando o sistema. Até breve!")
             break
 
         else:
-            print("❌ Opção inválida. Tente novamente.")
+            print("\n\033[31m❌ Opção inválida. Tente novamente.\033[0m")
 
 if __name__ == "__main__":
     inicio()
