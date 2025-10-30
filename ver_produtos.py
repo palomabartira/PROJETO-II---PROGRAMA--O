@@ -33,4 +33,4 @@ class Sapatos:
         print("-" * 10, "👠 CATÁLOGO 👠", "-" * 10)
         for produto in Sapatos.catalogo:
             print(produto.mostrar())
-        print("\n✨Escolha seu estilo e retorne para o menu para adicionar no carrinho!✨\n")
+        print("\n✨ Escolha seu estilo e retorne para o menu para adicionar no carrinho!✨\n")
