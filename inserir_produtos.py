@@ -30,7 +30,7 @@ class Carrinho:
             with open(self.arquivo, "w", encoding="utf-8") as f:
                 json.dump(lista, f, indent=4, ensure_ascii=False)
         except Exception as e:
-            print(f"❌ Erro ao salvar o arquivo: {e}")
+            print(f"\n\033[31m❌ Erro ao salvar o arquivo: {e}\033[0m")
 
     def inserirProduto(self):
         """ Solicita o ID de um produto ao usuário e o adiciona ao carrinho,
@@ -46,8 +46,8 @@ class Carrinho:
 
                 lista.append(item)
                 self.salvar(lista)
-                print("✔ Produto adicionado ao carrinho com sucesso!")
+                print(f"\n\033[32m✔ Produto '{produto.nome}' adicionado ao carrinho com sucesso!\033[0m")
             else:
-                print("❌ ID inválido!")
+                print("\n\033[31m❌ ID inválido!\033[0m")
         except ValueError:
-            print("❌ Valor inválido!")
+            print("\n\033[31m❌ Valor inválido!\033[0m")
