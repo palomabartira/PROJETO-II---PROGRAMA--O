@@ -1,8 +1,14 @@
 import json
+from main import menu
  
 class Login():
-    """Essa classe tem como objetivo gerenciar o acesso de um usuário."""
+    """ Gerencia o processo de login do usuário. Solicita nome e senha, verifica as credenciais no arquivo 'usuarios.json'
+    e, em caso de sucesso, inicia o menu principal. """
+
     def __init__(self):
+        """ Inicializa o login, solicitando nome e senha e realizando a autenticação.
+        Se as credenciais estiverem corretas, chama a função 'menu'. """
+
         self.nome = input("Informe seu nome: ").capitalize()
         self.senha = input("Informe sua senha: ")
 
@@ -12,7 +18,7 @@ class Login():
             for u in dados:
                 if u["Nome"] == self.nome and u["Senha"] == self.senha:
                     print(f"Bem-vindo(a), {self.nome}!")
-                    # self.menu()
+                    menu(self.nome)
                     return
                 
             print("Usuário ou senha incorretas!")
