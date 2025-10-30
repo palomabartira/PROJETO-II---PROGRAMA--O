@@ -1,37 +1,36 @@
+from produto import Sapato
+
 class Sapatos:
-    """Essa classe tem como objetivo mostrar as opções de sapatos presentes no catálogo.
-    Para isso, cria uma lista e dentro dela coloca um dicionário para organizar as informações sobre
-    o produto."""
-   
+    """ Gerencia o catálogo estático de sapatos disponíveis na loja. """
+
     catalogo = [
-        {"id": 1, "nome": "🩰 Papete Casual", "preco": 64.90},
-        {"id": 2, "nome": "👠 Salto Alto", "preco": 79.90},
-        {"id": 3, "nome": "👟 Tênis Casual", "preco": 59.90},
-        {"id": 4, "nome": "🥾 Sapatênis Casual", "preco": 80.90},
-        {"id": 5, "nome": "👞 Tênis Slip On", "preco": 189.90},
-        {"id": 6, "nome": "👟 Tênis Academia e Corrida Gel", "preco": 61.90},
-        {"id": 7, "nome": "👟 Tênis Hylane Skatista", "preco": 77.90},
-        {"id": 8, "nome": "🥿 Sapatilha Mocassim Fino", "preco": 49.90},
-        {"id": 9, "nome": "🥿 Sapatilha Feminina Salomé", "preco": 63.90},
-        {"id": 10, "nome": "🥿 Sandália Chinelo", "preco": 62.90},
-        {"id": 11, "nome": "🩰 Sandália Infantil Tratora Flatform", "preco": 189.90},
-        {"id": 12, "nome": "👢 Bota de Couro", "preco":149.90},
-        {"id": 13, "nome": "👡 Sandália Plataforma Original", "preco": 74.90},
-        {"id": 14, "nome": "🩰 Sandália Rasteira com Strass Brilho", "preco": 45.90},
-        {"id": 15, "nome": "🩰 Sandália Saltinho Baixo com Strass Brilho", "preco": 44.90},
-        {"id": 16, "nome": "🩰 Chinelo com Flor em Relevo", "preco": 49.90},
-        {"id": 17, "nome": "🩰 Papete de Luxo no Formato de Gladiadora", "preco": 189.90},
-        {"id": 18, "nome": "🩰 Rasteirinha Glitter Strass", "preco": 45.90},
-        {"id": 19, "nome": "👡 Sandália de Strass com Enfeite de Coração", "preco": 52.90},
-        {"id": 20, "nome": "🩰 Sandália Ajustável", "preco": 39.90},
+        Sapato(1, "🩰 Papete Casual", 64.90),
+        Sapato(2, "👠 Salto Alto", 79.90),
+        Sapato(3, "👟 Tênis Casual", 59.90),
+        Sapato(4, "🥾 Sapatênis Casual", 80.90),
+        Sapato(5, "👞 Tênis Slip On", 189.90),
+        Sapato(6, "👟 Tênis Academia e Corrida Gel", 61.90),
+        Sapato(7, "👟 Tênis Hylane Skatista", 77.90),
+        Sapato(8, "🥿 Sapatilha Mocassim Fino", 49.90),
+        Sapato(9, "🥿 Sapatilha Feminina Salomé", 63.90),
+        Sapato(10, "🥿 Sandália Chinelo", 62.90),
+        Sapato(11, "🩰 Sandália Infantil Tratora Flatform", 189.90),
+        Sapato(12, "👢 Bota de Couro", 149.90),
+        Sapato(13, "👡 Sandália Plataforma Original", 74.90),
+        Sapato(14, "🩰 Sandália Rasteira com Strass Brilho", 45.90),
+        Sapato(15, "🩰 Sandália Saltinho Baixo com Strass Brilho", 44.90),
+        Sapato(16, "🩰 Chinelo com Flor em Relevo", 49.90),
+        Sapato(17, "🩰 Papete de Luxo no Formato de Gladiadora", 189.90),
+        Sapato(18, "🩰 Rasteirinha Glitter Strass", 45.90),
+        Sapato(19, "👡 Sandália de Strass com Enfeite de Coração", 52.90),
+        Sapato(20, "🩰 Sandália Ajustável", 39.90),
         ]
 
     @staticmethod
     def verProdutos():
-        """Percorre a lista de dicionários 'Sapatos.catalogo', imprimindo o
-        ID, nome e preço de cada produto para o usuário."""
+        """ Exibe todos os produtos contidos no catálogo da loja. """
+        
         print("-" * 10, "👠 CATÁLOGO 👠", "-" * 10)
         for produto in Sapatos.catalogo:
-            print(f"ID: {produto['id']} - {produto['nome']} - R$ {produto['preco']}")
-                    
-        print("\n✨ Escolha seu estilo e retorne para o menu para adicionar no carrinho! ✨\n")
+            print(produto.mostrar())
+        print("\n✨Escolha seu estilo e retorne para o menu para adicionar no carrinho!✨\n")
