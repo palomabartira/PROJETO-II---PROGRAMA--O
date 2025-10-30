@@ -1,11 +1,12 @@
 from ver_produtos import Sapatos
 from inserir_produtos import Carrinho
+from ver_carrinho import VerCarrinho
+from cadastrar import Cadastrar
 from apagar_produtos import Remover
 
-def menu():
-    """Criação do menu para possibilitar que o usuário consiga interagir com o sistema.
-    Para isso, é solicitado que o usuário escolha uma opção válida, e, em seguida,
-    direciona a execução do programa para a função correspondente, baseado na escolha feita"""
+def menu(usuario):
+    """ Exibe e gerencia o menu principal da Loja Virtual de Sapatos após o login. """
+
     while True:
         print("=" *70)
         print("®️ 🅿️  Loja Virtual de Sapatos ®️ 🅿️".center(60))
@@ -23,23 +24,23 @@ def menu():
 
         if opcao == "1":
             print("-" * 70)
-            print("⏮ Carregando o Catálogo... ⏭\n")
+            print("⏮ Carregando catálogos... ⏭\n")
             Sapatos.verProdutos()
 
         elif opcao == "2":
             print("-" * 70)
-            print("⏮ Carregando o Carrinho... ⏭\n")
-            Carrinho.inserirProdutos()
+            print("⏮ Carregando o carrinho... ⏭\n")
+            Carrinho(usuario).inserirProduto()
           
         elif opcao == "3":
             print("-" * 70)
             print("⏮ Mostrando itens do seu carrinho... ⏭\n")
-            
+            VerCarrinho(usuario).exibir()
         
         elif opcao == "4":
             print("-" * 70)
             print("⏮ Removendo produtos do carrinho ⏭\n")
-            Remover.excluirSapatos()
+            Remover().excluirSapatos()
 
         elif opcao == "5":
             print("-" * 70)
@@ -47,8 +48,37 @@ def menu():
             break
           
         else:
-            print("\033[31m❌ Opção Inválida\033[0m")
+            print("❌ Opção Inválida")
 
+
+def inicio():
+    """ Exibe e gerencia o menu inicial do sistema (Login/Cadastro/Sair). """
+    
+    while True:
+        print("=" * 70)
+        print("®️ 🅿️  Loja Virtual de Sapatos ®️ 🅿️".center(60))
+        print('''
+        1️⃣  Fazer Login
+        2️⃣  Cadastrar Novo Usuário
+        3️⃣  Sair
+        ''')
+
+        escolha = input("Selecione uma opção: ")
+
+        if escolha == "1":
+            from login import Login
+            Login()
+            break
+
+        elif escolha == "2":
+            Cadastrar()
+
+        elif escolha == "3":
+            print("👋 Encerrando o sistema. Até breve!")
+            break
+
+        else:
+            print("❌ Opção inválida. Tente novamente.")
 
 if __name__ == "__main__":
-    menu()
+    inicio()
