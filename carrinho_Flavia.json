@@ -1,7 +1,22 @@
 [
     {
-        "id": 20,
-        "nome": "🩰 Sandália Ajustável",
-        "preco": 39.9
+        "id": 8,
+        "nome": "🥿 Sapatilha Mocassim Fino",
+        "preco": 49.9
+    },
+    {
+        "id": 8,
+        "nome": "🥿 Sapatilha Mocassim Fino",
+        "preco": 49.9
+    },
+    {
+        "id": 8,
+        "nome": "🥿 Sapatilha Mocassim Fino",
+        "preco": 49.9
+    },
+    {
+        "id": 8,
+        "nome": "🥿 Sapatilha Mocassim Fino",
+        "preco": 49.9
     }
 ]
