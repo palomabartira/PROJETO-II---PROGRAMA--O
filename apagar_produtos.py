@@ -1,5 +1,7 @@
 import os
 import json
+from ver_carrinho import VerCarrinho
+from inserir_produtos import Carrinho
 
 class Remover:
     """Essa classe tem como objetivo solicitar o id do sapato que deseja ser removido e, consequentemente,
@@ -11,7 +13,10 @@ class Remover:
         self.__arquivo = f"carrinho_{usuario}.json" 
         
         try:
-            id_sapato = int(input("🆔 Informe o ID do sapato que deseja excluir do carrinho:"))
+            VerCarrinho(usuario).exibir()
+
+            id_sapato = int(input("\n🆔 Informe o ID do sapato que deseja excluir do carrinho: "))
+            qtd = int(input("\nQual é a quantidade desse sapato que você deseja excluir do carrinho? "))
             
         except ValueError:
             print("\n \033[31m❌ O ID deve ser um número inteiro!\033[0m")
@@ -34,8 +39,10 @@ class Remover:
             return
       
         sapato_encontrado_index = None
+        qtd_sapatos = 0
         for i, item in enumerate(sapatos):
             if item.get("id") == id_sapato:
+                qtd_sapatos += 1
                 sapato_encontrado_index = i
                 break
             
@@ -43,7 +50,11 @@ class Remover:
             print(f"\n\033[31m❌ O ID fornecido não foi encontrado no seu carrinho!\033[0m")
             return
         
-        sapato_removido = sapatos.pop(sapato_encontrado_index)
+        for n in range(qtd):
+            sapato_removido = sapatos.pop(sapato_encontrado_index)
+
+            nome_sapato = sapato_removido.get('nome', 'Item Desconhecido')
+            print(f"\n \033[32m✔ O sapato '{nome_sapato}' (ID: {sapato_removido.get('id', id_sapato)}) foi excluído do carrinho! \033[0m")
         
         try:
             
@@ -52,6 +63,3 @@ class Remover:
         except Exception as e:
             print(f"\n \033[31m❌ Ocorreu um erro ao escrever no arquivo: {e}\033[0m")
             return
-            
-        nome_sapato = sapato_removido.get('nome', 'Item Desconhecido')
-        print(f"\n \033[32m✔ O sapato '{nome_sapato}' (ID: {sapato_removido.get('id', id_sapato)}) foi excluído do carrinho! \033[0m")
