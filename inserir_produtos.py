@@ -1,6 +1,7 @@
 import json
 import os
 from ver_produtos import Sapatos
+from ver_carrinho import VerCarrinho
 
 class Carrinho:
     """ Representa o carrinho de compras de um usuário específico,
@@ -37,15 +38,23 @@ class Carrinho:
         salvando a lista atualizada no arquivo JSON. """
 
         try:
-            id = int(input("🆔 Informe o ID do sapato que deseja adicionar no carrinho: "))
+            VerCarrinho(self.usuario).exibir()
+            id = int(input("\n🆔 Informe o ID do sapato que deseja adicionar no carrinho: "))
+            self.qtd_produto = int(input("\nQual é a quantidade desse sapato que você deseja adicionar no carrinho? "))
+
+            if self.qtd_produto == 0:
+                print("\n\033[31m❌ Quantidade inválida!\033[0m")
+
             if 0 < id <= len(Sapatos.catalogo):
                 produto = Sapatos.catalogo[id - 1]
                 lista = self.carregar()
 
                 item = {"id": produto.id, "nome": produto.nome, "preco": produto.preco}
 
-                lista.append(item)
-                self.salvar(lista)
+                for n in range(self.qtd_produto):
+                    lista.append(item)
+                    self.salvar(lista)
+                    
                 print(f"\n\033[32m✔ Produto '{produto.nome}' adicionado ao carrinho com sucesso!\033[0m")
             else:
                 print("\n\033[31m❌ ID inválido!\033[0m")
