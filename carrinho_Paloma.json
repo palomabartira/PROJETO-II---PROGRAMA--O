@@ -1,7 +1,12 @@
 [
     {
-        "id": 2,
-        "nome": "👠 Salto Alto",
-        "preco": 79.9
+        "id": 3,
+        "nome": "👟 Tênis Casual",
+        "preco": 59.9
+    },
+    {
+        "id": 3,
+        "nome": "👟 Tênis Casual",
+        "preco": 59.9
     }
 ]
